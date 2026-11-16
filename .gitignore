@@ -1,0 +1,9 @@
+pat.txt
+git_push.sh
+*.pyc
+__pycache__/
+.DS_Store
+node_modules/
+venv/
+dist/
+build/
