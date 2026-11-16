@@ -11,7 +11,14 @@ The repository contains two Dockerfiles:
 
 **Copyright (c) 2026 Jesse Ash. All Rights Reserved.**
 
-This repository is made public solely for portfolio showcase and evaluation purposes. 
+This repository is made public solely for technical demonstration purposes top clients and collaborators I will working with to localize and adapt the code for their own business AI.
+Copyright © 2026 [Your Name]. All rights reserved.
+
+Permission is granted to view, download, and run this code strictly for personal, educational, and non-commercial evaluation. You may not copy, modify, redistribute, publish, or use this code in any public or commercial project without explicit written permission from the copyright holder.
+
+
+
+THe code
 
 * **Permitted:** Viewing and reviewing the source code on GitHub for personal reference or hiring/client evaluation.
 * **Prohibited:** Copying, modifying, distributing, sublicensing, or using any part of this codebase in commercial or non-commercial projects without explicit written permission from the author.
