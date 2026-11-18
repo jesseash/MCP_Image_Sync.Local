@@ -1,15 +1,13 @@
 FROM python:3.11-slim
 WORKDIR /app
 
-# Install MCP SDK, HTTP client, HTML cleaner, and CPU reranker
+# Added 'requests' to call one_scrape on localhost:3000/mcp
 RUN pip install --no-cache-dir \
     mcp requests trafilatura flashrank
 
-# Pre-download the FlashRank model into the image at build time
 RUN python -c "from flashrank import Ranker; \
     Ranker('ms-marco-MiniLM-L-12-v2', cache_dir='/opt/flashrank')"
 
-# Copy server script and expose Streamable HTTP port 3001
 COPY fetch_rerank_server.py .
 EXPOSE 3001
-ENTRYPOINT ["python", "-u", "fetch_rerank_server.py"]
+ENTRYPOINT ["python", "fetch_rerank_server.py"]

@@ -17,17 +17,8 @@ if [ ! -s "$PAT_FILE" ]; then
     exit 1
 fi
 
-# Prompt for GitHub username if not already passed via environment
-if [ -z "$GITHUB_USER" ]; then
-    read -rp "Enter your GitHub username: " GITHUB_USER
-fi
-
-# Strip accidental whitespace and check that a username was entered
-GITHUB_USER=$(echo "$GITHUB_USER" | tr -d '[:space:]')
-if [ -z "$GITHUB_USER" ]; then
-    echo "Error: GitHub username cannot be empty."
-    exit 1
-fi
+# Hardcode the GitHub username
+GITHUB_USER="jesseash"
 
 # Read PAT and strip any spaces or Windows line endings
 CR_PAT=$(tr -d '[:space:]' < "$PAT_FILE")
@@ -40,23 +31,20 @@ IMAGE_URI_ONESEARCH="ghcr.io/${OWNER_LOWER}/${IMAGE_NAME_ONESEARCH}:${IMAGE_TAG}
 echo "Logging into ghcr.io as $OWNER_LOWER..."
 echo "$CR_PAT" | sudo docker login ghcr.io -u "$OWNER_LOWER" --password-stdin
 # 1. Handle SearxNG
- 
- sudo docker pull searxng/searxng:latest
- sudo docker tag searxng/searxng:latest ghcr.io/$OWNER_LOWER/searxng-engine:latest
- sudo docker push ghcr.io/$OWNER_LOWER/searxng-engine:latest
 
+sudo docker pull searxng/searxng:latest
+sudo docker tag searxng/searxng:latest ghcr.io/$OWNER_LOWER/searxng-engine:latest
+sudo docker push ghcr.io/$OWNER_LOWER/searxng-engine:latest
 
 # 2. Handle Python Tester
 sudo docker pull python:3.11
 sudo docker tag python:3.11 ghcr.io/$OWNER_LOWER/python-tester:3.11
 sudo docker push ghcr.io/$OWNER_LOWER/python-tester:3.11
 
-
 echo "Building $IMAGE_URI_ONESEARCH from Dockerfile..."
 sudo docker build -f Dockerfile.onesearch -t "$IMAGE_URI_ONESEARCH" .
 echo "Pushing $IMAGE_URI_ONESEARCH  to GHCR..."
 sudo docker push "$IMAGE_URI_ONESEARCH"
-
 
 echo "Done! Pushed to $IMAGE_URI_ONESEARCH"
 
