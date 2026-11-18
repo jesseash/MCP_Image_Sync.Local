@@ -9,7 +9,7 @@ The repository contains two Dockerfiles:
 
 Below is a simple usecase that demonstrates how the fetch reader and onesearch work when an LLM request the content of a webpage:
 
-![alt text](usecase_webscrape.png)
+![alt text](image.png)
 
 ## License & Copyright
 
