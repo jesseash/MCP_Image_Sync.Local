@@ -13,10 +13,9 @@ Below is a simple usecase that demonstrates how the fetch reader and onesearch w
 
 ## License & Copyright
 
-**Copyright (c) 2026 Jesse Ash. All Rights Reserved.**
+**Copyright © 2026 Jesse Ash. All Rights Reserved.**
 
-This repository is made public solely for technical demonstration purposes top clients and collaborators I will working with to localize and adapt the code for their own business AI.
-Copyright © 2026 [Your Name]. All rights reserved.
+This repository is made public solely for technical demonstration purposes to clients and collaborators I will be working with to localize and adapt the code for their own business AI.
 
 Permission is granted to view, download, and run this code strictly for personal, educational, and non-commercial evaluation. You may not copy, modify, redistribute, publish, or use this code in any public or commercial project without explicit written permission from the copyright holder.
 
