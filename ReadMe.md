@@ -11,19 +11,18 @@ Below is a simple usecase that demonstrates how the fetch reader and onesearch w
 
 ![alt text](image.png)
 
-## License & Copyright
+# License, Copyright & Liability Disclaimer
 
-**Copyright © 2026 Jesse Ash. All Rights Reserved.**
+**Copyright © 2026 Bokken LLC. All Rights Reserved.**
 
-This repository is made public solely for technical demonstration purposes to clients and collaborators I will be working with to localize and adapt the code for their own business AI.
+This repository is made public solely for technical demonstration purposes for prospective clients and collaborators evaluating local AI and business infrastructure solutions.
 
-Permission is granted to view, download, and run this code strictly for personal, educational, and non-commercial evaluation. You may not copy, modify, redistribute, publish, or use this code in any public or commercial project without explicit written permission from the copyright holder.
+* **Permitted Use:** You may view, clone, and run this code locally strictly for personal, educational, or client/hiring evaluation purposes.
+* **Prohibited Use:** You may not copy, modify, redistribute, sublicense, publish, or deploy any part of this codebase in any production, commercial, or public project without prior written permission from Bokken LLC.
+* **Third-Party Software:** Any third-party open-source packages, models, or binaries referenced or bundled in these Dockerfiles (including `mcp-proxy`, Trafilatura, and FlashRank) remain the property of their respective owners and are governed by their original open-source licenses.
 
+### Disclaimer of Warranty & Limitation of Liability
 
+**THIS SOFTWARE AND DOCUMENTATION ARE PROVIDED "AS IS," WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. IN NO EVENT SHALL BOKKEN LLC OR ITS MEMBERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY—WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE—ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.**
 
-THe code
-
-* **Permitted:** Viewing and reviewing the source code on GitHub for personal reference or hiring/client evaluation.
-* **Prohibited:** Copying, modifying, distributing, sublicensing, or using any part of this codebase in commercial or non-commercial projects without explicit written permission from the author.
-
-For licensing inquiries or permission requests, please contact me via jash@stny.rr.com
+For commercial licensing inquiries or permission requests, please contact **jash@stny.rr.com**.
