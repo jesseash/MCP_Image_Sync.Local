@@ -19,13 +19,13 @@ ranker = Ranker(
     cache_dir="/opt/flashrank",
 )
 
-
+#extracts the JSON payload tucked inside the SSE event wrapper and parses it into a Python dictionary.
 def _parse_mcp_sse(resp: requests.Response) -> dict:
     """Extracts JSON payload from SSE event-stream or JSON."""
     text = resp.text.strip()
     ctype = resp.headers.get("Content-Type", "")
     if "text/event-stream" in ctype or text.startswith("event:"):
-        for line in text.splitlines():
+        for line in text.splitlines(): #find the data field where the JSON payload is located
             if line.startswith("data:"):
                 return json.loads(line[5:].strip())
     return resp.json()
@@ -79,8 +79,12 @@ def _scrape_via_onesearch(url: str) -> str:
     items = data.get("result", {}).get("content", [])
     return "\n".join(i.get("text", "") for i in items)
 
-
-@mcp.tool()
+#this is the main or entry point of the script
+# mcp.tool stores fetch in an internal lookup table,
+# and wraps it so incoming HTTP/JSON requests automatically call it.
+# disabling structured_output is better for raw markdown
+# enabling structured_output is better for tabluar data from databases
+@mcp.tool(structured_output=False)
 def fetch(url: str, query: str = "", top_k: int = 5) -> str:
     """Scrapes via one_scrape, cleans HTML, and reranks."""
     try:
@@ -100,14 +104,7 @@ def fetch(url: str, query: str = "", top_k: int = 5) -> str:
     if not query.strip():
         return clean_md[:15000]
 
-    #chunks = [
-     #   c.strip()
-      #  for c in clean_md.split("\n\n")
-       # if len(c.strip()) > 40
-    #]
-    #if not chunks:
-     #   return clean_md[:15000]
-
+    
     
     # Group paragraphs under their Markdown headings into ~1,000-char sections
     # so FlashRank ranks complete instructions with context instead of isolated lines
